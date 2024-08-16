@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados de Temperatura</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #087d08; /* Verde escuro */
+        }
+        button {
+            margin: 10px;
+            padding: 20px 40px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 15px; /* Bordas arredondadas */
+            border: 2px solid #000; /* Borda preta para destaque */
+        }
+    </style>
+</head>
+<body>
+    <h1>Dados de Temperatura</h1>
+    <button onclick="window.location.href='mostardas.html'">Temperatura Mostardas</button>
+    <button onclick="window.location.href='torres.html'">Temperatura Torres</button>
+    
+    <!-- Referências corretas para os arquivos JavaScript -->
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-database.js"></script>
+    <script src="firebase.js"></script>
+    <script src="mostardas.js"></script>
+    <script src="torres.js"></script>
+</body>
+</html>
