@@ -25,35 +25,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 var hora = childSnapshot.child("hora").val();
                 console.log(temperature);
                 console.log(hora);
+                inserir_dados(dia,hora, temperature);
   
-                // Não subtrai mais horas da hora recebida
-                var [horaParte, minutoParte] = hora.split(':');
-                var Hora_atualizada = horaParte + ':' + minutoParte;
-  
-                // Adiciona 15 minutos se a hora atualizada for igual à última hora
-                if (Hora_atualizada === lastHora) {
-                    Hora_atualizada = adicionarMinutos(Hora_atualizada, 15);
-                }
-  
-                console.log(Hora_atualizada);
-  
-                inserir_dados(dia, Hora_atualizada, temperature);
-  
-                lastHora = Hora_atualizada;
-  
-                const evento = new CustomEvent('atualizarDataHora', { detail: { dia, Hora_atualizada } });
-                document.dispatchEvent(evento);
             });
         }
     });
-  
-    function adicionarMinutos(hora, minutos) {
-        var [horaParte, minutoParte] = hora.split(':');
-        var date = new Date();
-        date.setHours(horaParte, minutoParte);
-        date.setMinutes(date.getMinutes() + minutos);
-        return date.toTimeString().split(' ')[0].substring(0, 5);
-    }
   
     function inserir_dados(dia, hora, temperature) {
         var newRow = dadosList.insertRow();
